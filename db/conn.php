@@ -1,8 +1,15 @@
 <?php
-    $host =  '127.0.0.1';
-    $db = 'attendance_db';
-    $user = 'root';
-    $pass = '';
+    //$host =  '127.0.0.1';
+    //$db = 'attendance_db';
+    //$user = 'root';
+    //$pass = '';
+    //$charset = 'utf8mb4';
+
+    //Remote Database Connecction
+    $host =  'remotemysql.com';
+    $db = '5ENTq7gMfM';
+    $user = '5ENTq7gMfM';
+    $pass = 'tZeSoIv5T8';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -17,5 +24,5 @@
     }
 
     require_once 'crud.php';
-    $crud = new crud($pdo);
+    $crud = new crud($pdo); 
 ?>
