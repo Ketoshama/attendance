@@ -2,6 +2,7 @@
     $title = 'View Records';
 
     require_once 'includes/header.php';
+    require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
 
     //Get all attendees 
@@ -21,7 +22,7 @@
             <th>Specialty</th>
             <th>Actions</th>
 
-
+            
         </tr>
         <?php
             while($r = $results->fetch(PDO::FETCH_ASSOC)) {
