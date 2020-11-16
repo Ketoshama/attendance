@@ -20,7 +20,7 @@
 
     <h1 class="text-center"> Registration for IT Confrence </h1>
 
-    <form method="post" action="success.php">
+    <form method="post" action="success.php" enctype="multipart/form-data">
         <div class="form-group">
                 <label for="firstname">First Name</label>
                 <input required type="text" class="form-control" id="firstname" name="firstname">
@@ -50,6 +50,13 @@
                 <label for="phone">Contact Number</label>
                 <input type="phone" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp">
                 <small id="phoneHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <br>
+         <div class="custom-file">
+              
+                <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >
+                <label class="custom-file-label" for="avatar">Choose File</label>
+                <small id="avatar" class="form-text text-success">File Upload Is Optional.</small>
         </div>
         
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -13,8 +13,17 @@
         $email = $_POST['email'];
         $contact = $_POST['phone'];
         $specialty = $_POST['specialty'];
+
+        //Image upload command 
+        $orig_file = $_FILES["avatar"]["tmp_name"];
+        $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+        $target_dir = 'uploads/';
+        $destination = "$target_dir$contact.$ext";
+        move_uploaded_file($orig_file,$destination);
+
+
         //Call function to insert and track if success or not 
-        $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty);
+        $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $destination);
         $specialtyName = $crud->getSpecialtyById($specialty);
 
         if($isSuccess){
@@ -52,13 +61,14 @@
     
         </div>
     </div> -->
+    <img src="<?php echo $destination; ?>" class="rounded.circle" style="width: 20%; height: 20%" />
     <div class="border border-primary" style="width: 18rem;">
          <div class="card-body">
              <h5 class="card-title">
             <?php echo $_POST['firstname'] . ' ' . $_POST['lastname']; ?> 
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
-            <?php echo  $specialtyName['speciality']; ?> 
+            <?php echo  $specialtyName['name']; ?> 
             </h6>
             <p class="card-text">
                 Date of Birth: <?php echo $_POST['dob']; ?> 
